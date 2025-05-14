@@ -103,7 +103,7 @@ exports.updatePassword = (id, oldPassword, newPassword) => {
         // Verify old password
         const isPasswordValid = await bcrypt.compare(oldPassword, user.password);
         if (!isPasswordValid) {
-          return reject(new Error('Old password is incorrect'));
+          return reject(new Error('Current Password does not match. Please Re-enter'));
         }
 
         // Check if the new password matches the old password
